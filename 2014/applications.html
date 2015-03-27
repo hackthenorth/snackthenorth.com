@@ -1,0 +1,1148 @@
+---
+layout: default
+title: Your Application to Hack the North
+stylesheets:
+  - /2014/css/invite.css
+scripts:
+  - /2014/js/application.js
+  - /2014/js/invite.js
+  - https://cdn.firebase.com/js/client/1.0.17/firebase.js
+  - https://api.filepicker.io/v1/filepicker.js
+---
+
+{% raw %}
+<script id="application-template" type="text/x-handlebars-template">
+  <label>
+    Full Name
+    <input class="profile-full-name" name="name" type="text" required="required" maxlength="255" value="{{name}}">
+  </label>
+
+  <label>
+    School Email
+    <input name="email" type="email" required="required" maxlength="255" value="{{email}}">
+  </label>
+
+  <label>
+    Personal Email
+    <p>We will start emailing you here from now on</p>
+    <input name="personal_email" type="email" required="required" maxlength="255" value="{{personal_email}}">
+  </label>
+
+  <label>
+    School Name
+    <p>Please enter your school's full official name</p>
+    <input id="school" name="school" type="text" required="required" maxlength="255" value="{{school}}">
+  </label>
+
+  <label>
+    Will you be 18 or older before Sept 19?
+  </label>
+
+
+  <label class="radio inline">
+    <input name="is_18" type="radio" value="true" {{checked "true" is_18}}>
+    Yes
+  </label>
+
+  <label class="radio inline">
+    <input name="is_18" type="radio" value="false" {{checked "false" is_18}}>
+    No
+  </label>
+
+  <label>
+    Gender
+    <select name="gender" required>
+      <option value="n/a" {{selected "n/a" gender}}>Prefer to not specify</option>
+      <option value="Female" {{selected "Female" gender}}>Female</option>
+      <option value="Male" {{selected "Male" gender}}>Male</option>
+      <option value="Other" {{selected "Other" gender}}>Other</option>
+    </select>
+  </label>
+
+  <label>
+    Github/Portfolio URL
+    <input name="portfolio" required="required" type="text" maxlength="255" value="{{portfolio}}">
+  </label>
+
+  <label>
+    LinkedIn URL
+    <input name="linkedin" type="text" maxlength="255" value="{{linkedin}}">
+  </label>
+
+  <label>
+    What is your current academic status?
+    <p>What will you be in September?</p>
+  </label>
+  <label class="radio">
+    <input name="student_status" type="radio" value="undergraduate" required="required" {{checked "undergraduate" student_status}}>
+    Undergraduate
+  </label>
+
+  <label class="radio">
+    <input name="student_status" type="radio" value="graduate" {{checked "graduate" student_status}}>
+    Graduate
+  </label>
+
+  <label class="radio" style="margin-bottom: 1.5em;">
+    <input name="student_status" type="radio" value="highschool" {{checked "highschool" student_status}}>
+    Highschool
+  </label>
+
+  <label>
+    What year do you graduate?
+    <select name="grad_year" required>
+      <option value="2014" {{selected "2014" grad_year}}>2014</option>
+      <option value="2015" {{selected "2015" grad_year}}>2015</option>
+      <option value="2016" {{selected "2016" grad_year}}>2016</option>
+      <option value="2017" {{selected "2017" grad_year}}>2017</option>
+      <option value="2018" {{selected "2018" grad_year}}>2018</option>
+      <option value="2019" {{selected "2019" grad_year}}>2019</option>
+    </select>
+  </label>
+
+  <label>
+    What is your program of study?
+    <input name="program" type="text" value="{{program}}" required>
+  </label>
+
+  <label>
+    What is your skillset?
+    <select name="l33tskills" required>
+      <option value="Frontend" {{selected "Frontend" l33tskills}}>Frontend</option>
+      <option value="Backend" {{selected "Backend" l33tskills}}>Backend</option>
+      <option value="Design" {{selected "Design" l33tskills}}>Design</option>
+      <option value="Android" {{selected "Android" l33tskills}}>Android</option>
+      <option value="iOS" {{selected "iOS" l33tskills}}>iOS</option>
+      <option value="Hardware" {{selected "Hardware" l33tskills}}>Hardware</option>
+    </select>
+  </label>
+
+  <label>Is this your first hackathon?</label>
+
+  <label class="radio inline">
+    <input name="first_hackathon" type="radio" value="true" {{checked "true" first_hackathon}}>
+    Yes
+  </label>
+
+  <label class="radio inline">
+    <input name="first_hackathon" type="radio" value="false" {{checked "false" first_hackathon}}>
+    No
+  </label>
+
+
+  <label>
+    Will you need travel reimbursements?
+    <p>
+      Reimbursements will be determined on case by case basis. If you attend a nearby school, we will be arrange a bus for you!
+    </p>
+  </label>
+
+  <label class="radio inline">
+    <input name="travel" type="radio" value="true" {{checked "true" travel}}>
+    Yes
+  </label>
+
+  <label class="radio inline">
+    <input name="travel" type="radio" value="false" {{checked "false" travel}}>
+    No
+  </label>
+
+  <label>
+    Do you plan on doing a hardware hack?
+    <p>Depending on your hack, we might be able to provide you with hardware resources.</p>
+  </label>
+
+  <label class="radio inline">
+    <input name="is_hardware" type="radio" value="true" {{checked "true" is_hardware}}>
+    Yes
+  </label>
+
+  <label class="radio inline">
+    <input name="is_hardware" type="radio" value="false" {{checked "false" is_hardware}}>
+    No
+  </label>
+
+  <label>
+    Which city or airport will you be coming from?
+    <input name="location" type="text" value="{{location}}" required>
+  </label>
+
+
+  <label>
+    Tell us about something cool you've done
+    <p>
+      This could be any kind of project from a previous hackathon, school,
+      work or even your free time. Include links if applicable.
+    </p>
+    <textarea name="proud_project" required>{{proud_project}}</textarea>
+  </label>
+
+  <label>
+    ARE YOU EXCITED FOR HACK THE NORTH??
+  </label>
+
+  <label class="radio">
+    <input name="is_excited" type="radio" value="true" {{checked "true" is_excited}}>
+    HELL YEAH!!
+  </label>
+
+<label>
+<br>
+    Do you have any questions/comments for us?
+    <textarea name="comments" >{{comments}}</textarea>
+  </label>
+
+  <button type="submit" name="apply" class="CTA application-submit-button" style="margin-top: 0;">Save</button>
+
+  <input name="team" type="hidden" value="{{team}}>
+  <input name="id" type="hidden" value="{{id}}>
+  <input name="timestamp" type="hidden" value="{{timestamp}}>
+</script>
+
+
+<script id="no-team-template" type="text/x-handlebars-template">
+  <strong>The best hacks are made with friends!</strong>
+
+  <p>
+    Tell us who you want to work with so that we know about your teammates when
+    we review your application. A team is limited to <b>max 4</b> hackers. <br><br> Each team member must also apply individually. Creating a team is totally optional.<br><br>
+  </p>
+
+  <div class="team-container">
+    <form class="join-team-form">
+      <label>
+        <input type="text" class="invite-code-input" placeholder="Team code" required>
+      </label>
+      <button  type="submit" class="CTA join-team-button" style="margin-top: 0;">Join team</button>
+    </form>
+    <hr class="or">
+    <button class="CTA create-team-button" style="margin-top: 0;">Create team</button>
+  </div>
+</script>
+
+<script id="team-template" type="text/x-handlebars-template">
+  <strong>The best hacks are made with friends!</strong>
+
+  <p>
+    Tell us who you want to work with so that we know about your teammates when
+    we review your application. A team is limited to <b>max 4</b> hackers. <br><br> Each team member must also apply individually. Creating a team is totally optional.<br><br>
+  </p>
+
+  <div class="team-container">
+    <label>
+      Your team
+    </label>
+
+    <ul class="team-members-list">
+      {{#each members}}
+        <li>{{name}}</li>
+      {{/each}}
+    </ul>
+
+    <label>
+      Invite code
+    </label>
+    <p>Share this invite code with team members to have them join your team:</p>
+    <div class="team-members-invite-code">
+      {{code}}
+    </div>
+
+    <button class="CTA leave-team-button" style="margin-top: 0;">Leave team</button>
+    <div class="leave-team-confirm-container">
+      <div>
+        <strong>Are you sure?</strong>
+      </div>
+      <button class="leave-team-cancel-button CTA">Stay</button>
+      <button class="leave-team-confirm-button CTA">Leave team for realsies</button>
+    </div>
+  </div>
+</script>
+
+<script id="confirm-registration-template" type="text/x-handlebars-template">
+  <div class="section_header">
+    <h3>Registration</h3>
+  </div>
+
+  <div class="registration-step">
+    <div class="spinner spinner-light"></div>
+  </div>
+</script>
+
+<script id="waiver-template" type="text/x-handlebars-template">
+  <div class="section_header">
+    <h4>Sign waiver</h4>
+  </div>
+  <strong>Waiver</strong>
+  <div class="waiver">
+    <h1>HACK THE NORTH RULES, RELEASE AND WAIVER OF LIABILITY</h1>
+    <hr>
+
+    <p>
+      Welcome to Hack the North! We’re pleased that you can participate. Before
+      you join in the fun, we want to make certain that you understand that your
+      participation is subject to a few rules and parameters, and your execution
+      of the release set forth in this document.
+    </p>
+
+
+    <h1>Rules</h1>
+    <hr>
+    <p>
+      If you are under the age of 18, you must obtain the consent of your parent
+      or guardian to participate in Hack the North and to agree to this
+      Agreement, by having your parent or guardian fill out their contact
+      information below and clicking on the "I AGREE" button. You acknowledge
+      that, even if you are a minor, you must read and understand the content of
+      this Agreement, andthat you have the capacity and intend to be bound by
+      the terms of this Agreement.
+    </p>
+
+    <p>
+      You must comply with all facility and equipment rules and requirements
+      during your participation in Hack the North, including all safety
+      instructions and requirements, and prohibitions against inappropriate
+      alcohol usage. You are not to take unreasonable risks while using the
+      facilities where Hack the North is located, including causing any other
+      person using such facilities an unreasonable risk of harm.
+    </p>
+
+    <p>
+      You assume full responsibility for any damage or injury caused by you in
+      your participation in Hack the North (whether to persons or property, and
+      whether to yourself or others) and release the University of Waterloo,
+      Techyon, all sponsors of Hack the North, and all other participants in
+      Hack the North (collectively, the "Releasees") from any liability
+      therefore. YOU ARE AWARE THAT YOUR PARTICIPATION IN HACK THE NORTH IS
+      SOLELY AT YOUR OWN RISK, AND THAT THE RELEASE HEREIN IS INTENDED TO
+      REFLECT THAT UNDERSTANDING.
+    </p>
+
+    <p>
+      You will own any developments made by you during Hack the North, and all
+      right, title and interest in those developments, including the
+      intellectual property rights therein, shall belong to you. However, you
+      acknowledge that during the course of Hack the North, you may obtain
+      access to products, developments, information and other materials
+      belonging to other participants of Hack the North, the sponsors of Hack
+      the North and/or other third parties ("Third Party Materials"), and that
+      nothing in this Agreement is deemed to transfer any ownership, right,
+      title or interest in such Third Party Materials to you. Your only rights
+      to the Third Party Materials shall be those expressly granted to you by
+      the owner(s) of the Third Party Materials. Specifically, any APIs or other
+      software provided to you by sponsors of Hack the North are subject to the
+      subscription terms and software licenses associated with such APIs or
+      other software.
+    </p>
+
+    <p>
+      You acknowledge that Hack the North is intended to be an event where ideas
+      are shared freely, and therefore acknowledge that any information that you
+      share with other participants of Hack the North, the sponsors of Hack the
+      North and/or other third parties during Hack the North is solely at your
+      discretion and risk. If you wish to protect your information, it is solely
+      your responsibility to implement confidentiality and security measures
+      with respect to the persons to whom you are disclosing your information.
+      None of the Releasees shall have any responsibility under this Agreement
+      or by virtue of their participation in Hack the North with respect to your
+      information
+    </p>
+
+    <p>
+      You acknowledge that the organizers and sponsors of Hack the North,
+      including the University of Waterloo and Techyon (collectively, the
+      "Organizers") will be recording the Hack the North event on video,
+      photographs, audio recording and other media, and therefore agree that:
+    </p>
+
+    <p>
+      The Organizers have the unrestricted right to use your likeness, image,
+      voice, opinions, and appearance, and also any images of your projects,
+      developments, materials and belongings made at or brought to Hack the
+      North, captured through video, photographs or other media during Hack the
+      North for the express purpose of creating promotional material (the
+      "Images"), for the purposes of use in websites, promotional materials,
+      publications and other media of any of the Organizers, whether in print or
+      electronically (the "Materials"). The foregoing right includes permission
+      to copyright, use, re-use, publish, and republish Images in which you may
+      be included, intact or in part, composite or distorted in character or
+      form, without restriction as to changes or transformations, in conjunction
+      with your own or a fictitious name, reproduction in color or otherwise,
+      made through any and all media now or hereafter known;
+    </p>
+
+    <p>
+      The Organizers shall solely own the Materials in which you or your Images,
+      in whole or in part, may appear, including copyright interests, and you
+      have no ownership rights therein;
+    </p>
+
+    <p>
+      You give all clearances, copyright and otherwise, for use of your Images,
+      and waive any moral rights that you may have in the Materials in which you
+      or your Images may appear. The rights granted to the Hackathon Organizers
+      herein are perpetual and worldwide. For greater certainty, my Images may
+      continue to be used after the completion of Hack the North;
+    </p>
+
+    <p>
+      You relinquish any right that you may have to examine or approve the
+      Materials in which you or your Images may appear or the use to which they
+      may be applied; and you hereby release, discharge and agree to save
+      harmless each and all of the Organizers from any liability by virtue of
+      any blurring, distortion, alteration, optical illusion, or use in
+      composite form of the Images whether intentional or otherwise, that may
+      occur or be produced in the recording of the Images or in any subsequent
+      processing thereof, as well as any publication thereof, including without
+      limitation any claims for libel or invasion of privacy.
+    </p>
+
+    <p>
+      You agree that the Organizers may share your registration details,
+      linkedin/github profiles, details of your Hackathon product, and other
+      information obtained from you in the course of, or relating to, Hack the
+      North with the sponsors of Hack the North, and acknowledge that such
+      sponsors of Hack the North may contact you during and after Hack the
+      North.By agreeing to this document and/or participating in Hack the North,
+      you are providing your express consent to communications by the Organizers
+      and sponsors (including e-mail communications, both marketing and
+      informational) respecting the products and services of the Organizers and
+      sponsors, and future events.
+    </p>
+
+    <p>
+      You acknowledge that if you provide Hack the North with false or
+      misleading information (such as your identity or status as a student), or
+      otherwise contravene the rules and obligations set out in this document,
+      you forfeit your right to participate in Hack the North and/or obtain any
+      prizes from Hack the North. You agree that in such case, Hack the North
+      may pursue any remedy in law or equity to reclaim any prize or recover any
+      damages occurring as a result of your contravention or misrepresentation.
+    </p>
+
+
+    <h1>Release</h1>
+    <hr>
+
+    <p>
+      For valuable consideration, including permission to take part in Hack the
+      North, the undersigned on behalf of him/herself, his or her personal
+      representatives, assigns, heirs and next of kin: hereby covenants not to
+      sue, and releases, waives, and discharges the Releasees, their owners,
+      officers, agents, affiliates, employees, volunteers, and/or any other
+      person or entity in any way associated with Hack the North, from liability
+      for any injury to the person or property or death of the undersigned
+      arising out of or related to use of the premises, equipment, or other
+      facilities of the Releasees, whether caused by an act of negligence of the
+      Releasees or otherwise; and hereby assumes full responsibility for any
+      risk of bodily injury, death or property damage arising out of or related
+      to their participation in Hack the North, whether occurring to the
+      undersigned or to any other person or entity for whom the undersigned is
+      responsible or with whom the undersigned is associated, and whether caused
+      by an act of negligence of the Releasees or otherwise. The foregoing
+      release includes, but is not limited to, any occurrences of personal
+      injury, illness (food-borne or otherwise), and loss of belongings, whether
+      by theft or otherwise. The undersigned further agrees that this instrument
+      (the terms of which collectively are referred to as the Agreement) is
+      intended to be as broad and inclusive as is permitted by the laws of the
+      Province of Ontario and that if any portion thereof is held invalid, that
+      portion shall be invalid only to the extent required by law, and the
+      balance shall, notwithstanding, continue in full force and effect.
+    </p>
+
+    <p>
+      I have completely read and understand this Agreement and its terms, and
+      agree to comply with all rules and obligations set forth in this
+      Agreement. I understand that I have given up substantial rights by signing
+      it, and have signed it freely and voluntarily without inducement,
+      assurance or guarantee being made to me. I confirm that I have the right
+      to enter into this Agreement, that I am not restricted by any commitments
+      to any other parties, and that none of the Organizers have any financial
+      commitment or obligations to me as a result of this Agreement or the use
+      of my Images. Prior to signing this Agreement, I have had the opportunity
+      to ask any questions about this Agreement and Hack the North.
+    </p>
+  </div>
+
+  <form class="waiver-form">
+    <label>
+      Full Legal Name
+      <input type="text" name="name" required value="{{name}}">
+    </label>
+
+    <label>
+      Date
+      <input type="text" name="waiver_date" disabled required value="{{waiver_date}}">
+    </label>
+
+    <label>
+      I certify my date of birth is
+      <input type="text" name="dob" required placeholder="mm/dd/yyyy" value="{{dob}}">
+    </label>
+
+    <label>
+      Address
+      <input type="text" name="address" required value="{{address}}">
+    </label>
+
+    <label>
+      Phone Number
+      <input type="text" name="phone" required value="{{phone}}">
+    </label>
+
+    <label>
+      Emergency Contact Name:
+      <input type="text" name="emergency_contact_name" required value="{{emergency_contact_name}}">
+    </label>
+
+    <label>
+      Emergency Contact Address:
+      <input type="text" name="emergency_contact_address" required value="{{emergency_contact_address}}">
+    </label>
+
+    <label>
+      Emergency Contact Phone:
+      <input type="text" name="emergency_contact_phone" required value="{{emergency_contact_phone}}">
+    </label>
+
+    <label class="checkbox">
+      <input class="under-18-checkbox" type="checkbox" name="under_18" value="true"{{checked "true" under_18}}>
+      I am under 18
+    </label>
+
+    <div class="under-18-section" {{#if under_18}} style="display: block;" {{/if}}>
+      <p>
+        <strong>Please
+        <a class="waiver-link" href="/waiver.pdf" target="_blank">fill out this waiver</a>
+        with your parent/guardian's signature and upload it below:</strong>
+      </p>
+      <input type="filepicker-dragdrop"
+        data-fp-store-location="S3"
+        data-fp-store-path="waivers/{{id}}_{{name}}/"
+        data-fp-drag-text="Drop signed waiver here (or click to upload)"
+        class="waiver-filepicker filepicker">
+      <p class="filepicker-filetype">
+        <em>Please be sure to upload a .pdf</em>
+      </p>
+
+      {{#if waiver_url}}
+        <div>
+          <strong>Stored waiver: </strong>
+          <a href="{{waiver_url}}" target="_blank">{{waiver_filename}}</a>
+        </div>
+      {{/if}}
+    </div>
+
+    <p>By pressing "I agree", you agree to the terms outlined in the waiver.</p>
+    <div class="registration-nav-buttons">
+      <button class="CTA registration-back-button">Back</button>
+      <button type="submit" class="CTA waiver-submit-button">I agree</button>
+    </div>
+  </form>
+</script>
+
+<script id="resume-template" type="text/x-handlebars-template">
+  <div class="section_header">
+    <h4>Upload your resume</h4>
+  </div>
+  <input type="filepicker-dragdrop"
+    data-fp-store-location="S3"
+    data-fp-store-path="resumes/{{id}}_{{name}}/"
+    data-fp-drag-text="Drop resume here (or click to upload)"
+    class="resume-filepicker filepicker">
+  <p class="filepicker-filetype">
+    <em>Please be sure to upload a .pdf</em>
+  </p>
+  {{#if resume_url}}
+    <div>
+      <strong>Stored resume: </strong>
+      <a href="{{resume_url}}" target="_blank">{{resume_filename}}</a>
+    </div>
+  {{/if}}
+
+  <label class="checkbox" style="margin-top: 35px;">
+    <input type="checkbox" class="interested-internship-checkbox" {{checked "true" interested_internship}}>
+    I'm interested for an internship in the next 8 months (including summer)
+  </label>
+
+  <div class="registration-nav-buttons">
+    <button class="CTA registration-back-button">Back</button>
+
+
+      <button class="CTA registration-next-button" {{#unless resume_url}}disabled{{/unless}}>Next</button>
+
+  </div>
+</script>
+
+<script id="additional-info-template" type="text/x-handlebars-template">
+  <div class="section_header">
+    <h4>Additional Information</h4>
+  </div>
+  <form class="additional-info-form">
+    <label>
+      Shirt Size
+      <select name="shirt_size" required>
+        <option value="s" {{selected "s" shirt_size}}>Men/Unisex S</option>
+        <option value="m" {{selected "m" shirt_size}}>Men/Unisex M</option>
+        <option value="l" {{selected "l" shirt_size}}>Men/Unisex L</option>
+        <option value="xl" {{selected "xl" shirt_size}}>Men/Unisex XL</option>
+        <option value="xxl" {{selected "xxl" shirt_size}}>Men/Unisex XXL</option>
+        <option value="wxs" {{selected "wxs" shirt_size}}>Women XS</option>
+        <option value="ws" {{selected "ws" shirt_size}}>Women S</option>
+        <option value="wm" {{selected "wm" shirt_size}}>Women M</option>
+        <option value="wl" {{selected "wl" shirt_size}}>Women L</option>
+        <option value="wxl" {{selected "wxl" shirt_size}}>Women XL</option>
+        <option value="wxxl" {{selected "wxxl" shirt_size}}>Women XXL</option>
+      </select>
+    </label>
+
+    <label>Food restrictions</label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="food_restrictions_gluten" value="true" {{checked "true" food_restrictions_gluten}}>
+      Gluten-free
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="food_restrictions_vegetarian" value="true"{{checked "true" food_restrictions_vegetarian}}>
+      Vegetarian
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="food_restrictions_kosher" value="true"{{checked "true" food_restrictions_kosher}}>
+      Kosher
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="food_restrictions_vegan" value="true"{{checked "true" food_restrictions_vegan}}>
+      Vegan
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="food_restrictions_halal" value="true"{{checked "true" food_restrictions_halal}}>
+      Halal
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="food_restrictions_lactose" value="true"{{checked "true" food_restrictions_lactose}}>
+      Lactose Intolerant
+    </label>
+
+    <br>
+
+    <label>
+      Allergies/Other food information:
+      <input type="text" name="food_allergies" value="{{food_allergies}}">
+    </label>
+
+    <br>
+
+    <label>
+      Interested hardware
+      <p>If you are interested in doing a hardware hack, we are able to provide some participants with hardware. Check the hardware you are interested in hacking with.</p>
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="interested_hardware_myo" value="true" {{checked "true" interested_hardware_myo}}>
+      Myo
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="interested_hardware_pebble" value="true" {{checked "true" interested_hardware_pebble}}>
+      Pebble
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="interested_hardware_nymi" value="true" {{checked "true" interested_hardware_nymi}}>
+      Nymi (<a href="http://www.getnymi.com/" target="_blank">http://www.getnymi.com/</a>)
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="interested_hardware_spark" value="true" {{checked "true" interested_hardware_spark}}>
+      Spark.io
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="interested_hardware_estimote" value="true" {{checked "true" interested_hardware_estimote}}>
+      Estimote
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="interested_hardware_arduino" value="true" {{checked "true" interested_hardware_arduino}}>
+      Arduino
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="interested_hardware_leap" value="true" {{checked "true" interested_hardware_leap}}>
+      Leap Motion
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="interested_hardware_3d_printing" value="true" {{checked "true" interested_hardware_3d_printing}}>
+      3D Printing
+    </label>
+
+    <input type="hidden" name="finished_registration" value="true">
+
+    <div class="registration-nav-buttons">
+      <button class="CTA registration-back-button">Back</button>
+      <button type="submit" name="apply" class="CTA additional-info-submit-button" style="">Next</button>
+    </div>
+  </form>
+</script>
+
+<script id="finished-registration-template" type="text/x-handlebars-template">
+  <div class="section_header">
+    <h4>You're 83.333% confirmed!</h4>
+  </div>
+  <p>
+    We're really excited to have you attend Hack The North! But wait– there’s
+    more. We need to know about your travel arrangements.
+  </p>
+
+  <div class="registration-nav-buttons">
+    <button class="CTA registration-back-button">Back</button>
+    <button type="submit" name="apply" class="CTA finished-next-button" style="">Next</button>
+  </div>
+</script>
+
+<script id="finished-registration-waitlisted-template" type="text/x-handlebars-template">
+  <div class="section_header">
+    <h4>You're on the fast track!</h4>
+  </div>
+  <p>
+    Since you're waitlisted, filling out the application does
+    not confirm your attendance unless you've received an official confirmation email from us. We’ll let you know via email if a spot opens up.
+  </p>
+  <p>
+    If you have any questions, email us at
+    <a href="mailto:hello@hackthenorth.com" target="_blank">
+      hello@hackthenorth.com
+    </a>
+  </p>
+
+  <div class="registration-nav-buttons">
+    <button class="CTA registration-back-button">Back</button>
+  </div>
+</script>
+
+<script id="travel-template" type="text/x-handlebars-template">
+  <div class="section_header">
+    <h4>Travel Arrangements</h4>
+  </div>
+
+  <p class="travel-paragraph">
+    You must confirm your travel arrangements by
+    <strong>August 19th</strong> or else you forefit your spot.
+    Before confirming travel arrangements, please see our
+    <strong><a class="travel-guidelines-link" href="/travel" target="_blank">Travel Guidelines</a></strong>
+    and
+    <strong><a class="reimbursement-chart-link" href="https://docs.google.com/a/hackthenorth.com/spreadsheets/d/12J0zZjFkqnGEaJB4g2B1DaTV-f1jZXAl-tEfjj7EYGw/edit#gid=0" target="_blank">
+      Reimbursement Chart
+    </a></strong>.
+  </p>
+
+  <form class="travel-form">
+    <p class="travel-method">
+      I'll be getting to Hack The North via
+      <select name="travel_method" class="travel-method-select">
+        <option selected disabled hidden value=''></option>
+        <option value="walking" {{selected "walking" travel_method}}>Walking</option>
+        <option value="arranged-bus" {{selected "arranged-bus" travel_method}}>Arranged Bus</option>
+        <option value="public-transit" {{selected "public-transit" travel_method}}>Public Transit</option>
+        <option value="driving" {{selected "driving" travel_method}}>Driving</option>
+        <option value="flying" {{selected "flying" travel_method}}>Flying</option>
+        <option value="hyperloop" disabled>Hyperloop (available next year)</option>
+        <option value="dogsled" disabled>Dogsled</option>
+      </select>
+    </p>
+
+    <div class="travel-method-section travel-method-walking">
+      <p class="travel-paragraph">
+        Good on you for taking the healthy option! Enjoy the fresh air and
+        exercise :)
+      </p>
+    </div>
+
+    <div class="travel-method-section travel-method-arranged-bus">
+      <label class="label-centered">
+        Bus route (see chart)
+        <select name="arranged_bus">
+          <option {{selected "Route 1" arranged_bus}}>Route 1</option>
+          <option {{selected "Route 2" arranged_bus}}>Route 2</option>
+          <option {{selected "Route 3" arranged_bus}}>Route 3</option>
+          <option {{selected "Route 4" arranged_bus}}>Route 4</option>
+          <option {{selected "Route 5" arranged_bus}}>Route 5</option>
+          <option {{selected "Route 6" arranged_bus}}>Route 6</option>
+          <option {{selected "Route 7" arranged_bus}}>Route 7</option>
+          <option {{selected "Route 8" arranged_bus}}>Route 8</option>
+          <option {{selected "Route 9" arranged_bus}}>Route 9</option>
+          <option {{selected "Route 10" arranged_bus}}>Route 10</option>
+          <option {{selected "Route 11" arranged_bus}}>Route 11</option>
+          <option {{selected "Route 12" arranged_bus}}>Route 12</option>
+          <option {{selected "Route 13" arranged_bus}}>Route 13</option>
+        </select>
+      </label>
+
+      <label class="checkbox">
+        <input class="understand_legal_entry" type="checkbox" name="understand_legal_entry" value="true"{{checked "true" understand_legal_entry}} required>
+        I understand I'm responsible for confirming if I'm legally eligible to enter Canada
+      </label>
+
+      <label class="checkbox">
+        <input class="have_valid_na_passport" type="checkbox" name="have_valid_na_passport" value="true"{{checked "true" have_valid_na_passport}}>
+        I'm traveling across the border and have a valid Canadian or US passport
+      </label>
+
+      <br>
+      <br>
+
+      <p>
+        <strong>
+          The following section only applies if you are travelling across the
+          border.
+          </strong>
+      </p>
+
+      <label>
+        Passport type
+        <select name="passport_type">
+          <option {{selected "Canadian" passport_type}}>Canadian</option>
+          <option {{selected "US" passport_type}}>US</option>
+          <option {{selected "Other" passport_type}}>Other</option>
+        </select>
+      </label>
+
+      <label>
+        Passport expiry date (MM/DD/YYYY)
+        <input type-"text" name="passport_expiry" value="{{passport_expiry}}">
+      </label>
+
+      <label>
+        If travelling on "other" passport, what type of visa do you have?
+        <input type-"text" name="visa_type" value="{{visa_type}}">
+      </label>
+    </div>
+
+    <div class="travel-method-section travel-method-public-transit">
+      <p>The last day to upload receipts is September 25th.</p>
+
+      <input type="filepicker-dragdrop"
+        data-fp-store-location="S3"
+        data-fp-store-path="receipts/{{id}}_{{name}}/"
+        data-fp-drag-text="Drop receipts here (or click to upload)"
+        data-fp-multiple="true"
+        class="receipts-filepicker filepicker">
+
+      <p class="filepicker-filetype">
+        <em>Please be sure to upload PDFs or images</em>
+      </p>
+
+      <strong>Uploaded receipts</strong>
+      <ul class="uploaded-receipts">
+      {{#each receipts}}
+        <li><a href="{{url}}" target="_blank">{{filename}}</a></li>
+      {{else}}
+        <p>None</p>
+      {{/each}}
+      </ul>
+
+      <label class="checkbox">
+        <input class="understand_reimbursement" type="checkbox" name="understand_reimbursement" value="true"{{checked "true" understand_reimbursement}} required>
+        I understand I will only be reimbursed after I attend the event
+      </label>
+
+      <label class="checkbox">
+        <input class="understand_legal_entry" type="checkbox" name="understand_legal_entry" value="true"{{checked "true" understand_legal_entry}} required>
+        I understand I'm responsible for confirming if I'm legally eligible to enter Canada
+      </label>
+
+      <label class="checkbox">
+        <input class="have_valid_na_passport" type="checkbox" name="have_valid_na_passport" value="true"{{checked "true" have_valid_na_passport}}>
+        I'm traveling across the border and have a valid Canadian or US passport
+      </label>
+
+      <br>
+      <br>
+
+      <p>
+        <strong>
+          The following section only applies if you are travelling across the
+          border.
+          </strong>
+      </p>
+
+      <label>
+        Passport type
+        <select name="passport_type">
+          <option {{selected "Canadian" passport_type}}>Canadian</option>
+          <option {{selected "US" passport_type}}>US</option>
+          <option {{selected "Other" passport_type}}>Other</option>
+        </select>
+      </label>
+
+      <label>
+        Passport expiry date (MM/DD/YYYY)
+        <input type-"text" name="passport_expiry" value="{{passport_expiry}}">
+      </label>
+
+      <label>
+        If travelling on "other" passport, what type of visa do you have?
+        <input type-"text" name="visa_type" value="{{visa_type}}">
+      </label>
+    </div>
+
+    <div class="travel-method-section travel-method-driving">
+      <p>The last day to upload receipts is September 25th.</p>
+
+      <input type="filepicker-dragdrop"
+        data-fp-store-location="S3"
+        data-fp-store-path="receipts/{{id}}_{{name}}/"
+        data-fp-drag-text="Drop receipts here (or click to upload)"
+        data-fp-multiple="true"
+        class="receipts-filepicker filepicker">
+
+      <p class="filepicker-filetype">
+        <em>Please be sure to upload PDFs or images</em>
+      </p>
+
+      <strong>Uploaded receipts</strong>
+      <ul class="uploaded-receipts">
+      {{#each receipts}}
+        <li><a href="{{url}}" target="_blank">{{filename}}</a></li>
+      {{else}}
+        <p>None</p>
+      {{/each}}
+      </ul>
+
+      <label class="checkbox">
+        <input class="understand_reimbursement" type="checkbox" name="understand_reimbursement" value="true"{{checked "true" understand_reimbursement}} required>
+        I understand I will only be reimbursed after I attend the event
+      </label>
+
+      <label class="checkbox">
+        <input class="understand_legal_entry" type="checkbox" name="understand_legal_entry" value="true"{{checked "true" understand_legal_entry}} required>
+        I understand I'm responsible for confirming if I'm legally eligible to enter Canada
+      </label>
+
+      <label class="checkbox">
+        <input class="have_valid_na_passport" type="checkbox" name="have_valid_na_passport" value="true"{{checked "true" have_valid_na_passport}}>
+        I'm traveling across the border and have a valid Canadian or US passport
+      </label>
+
+      <br>
+      <br>
+
+      <p>
+        <strong>
+          The following section only applies if you are travelling across the
+          border.
+          </strong>
+      </p>
+
+      <label>
+        Passport type
+        <select name="passport_type">
+          <option {{selected "Canadian" passport_type}}>Canadian</option>
+          <option {{selected "US" passport_type}}>US</option>
+          <option {{selected "Other" passport_type}}>Other</option>
+        </select>
+      </label>
+
+      <label>
+        Passport expiry date (MM/DD/YYYY)
+        <input type-"text" name="passport_expiry" value="{{passport_expiry}}">
+      </label>
+
+      <label>
+        If travelling on "other" passport, what type of visa do you have?
+        <input type-"text" name="visa_type" value="{{visa_type}}">
+      </label>
+    </div>
+
+    <div class="travel-method-section travel-method-flying">
+      <p class="flight-booking-deadline">
+        Flights <strong>must</strong> be booked before/on August 19th in order to
+        be eligible for reimbursement.
+      </p>
+
+      <input type="filepicker-dragdrop"
+        data-fp-store-location="S3"
+        data-fp-store-path="receipts/{{id}}_{{name}}/"
+        data-fp-drag-text="Drop receipts here (or click to upload)"
+        data-fp-multiple="true"
+        class="receipts-filepicker filepicker">
+
+      <p class="filepicker-filetype">
+        <em>Please be sure to upload PDFs or images</em>
+      </p>
+
+      <strong>Uploaded receipts</strong>
+      <ul class="uploaded-receipts">
+      {{#each receipts}}
+        <li><a href="{{url}}" target="_blank">{{filename}}</a></li>
+      {{else}}
+        <p>None</p>
+      {{/each}}
+      </ul>
+
+      <label class="checkbox">
+        <input class="understand_reimbursement" type="checkbox" name="understand_reimbursement" value="true"{{checked "true" understand_reimbursement}} required>
+        I understand I will only be reimbursed after I attend the event
+      </label>
+
+      <label class="checkbox">
+        <input class="understand_legal_entry" type="checkbox" name="understand_legal_entry" value="true"{{checked "true" understand_legal_entry}} required>
+        I understand I'm responsible for confirming if I'm legally eligible to enter Canada
+      </label>
+
+      <label class="checkbox">
+        <input class="have_valid_na_passport" type="checkbox" name="have_valid_na_passport" value="true"{{checked "true" have_valid_na_passport}}>
+        I'm traveling across the border and have a valid Canadian or US passport
+      </label>
+
+      <br>
+      <br>
+
+      <p>
+        <strong>
+          The following section only applies if you are travelling across the
+          border.
+          </strong>
+      </p>
+
+      <label>
+        Passport type
+        <select name="passport_type">
+          <option {{selected "Canadian" passport_type}}>Canadian</option>
+          <option {{selected "US" passport_type}}>US</option>
+          <option {{selected "Other" passport_type}}>Other</option>
+        </select>
+      </label>
+
+      <label>
+        Passport expiry date (MM/DD/YYYY)
+        <input type-"text" name="passport_expiry" value="{{passport_expiry}}">
+      </label>
+
+      <label>
+        If travelling on "other" passport, what type of visa do you have?
+        <input type-"text" name="visa_type" value="{{visa_type}}">
+      </label>
+    </div>
+
+    <div class="registration-nav-buttons">
+      <button class="CTA registration-back-button">Back</button>
+      <button type="submit" name="apply" class="CTA travel-save-button" style="display: none;">Save</button>
+    </div>
+  </form>
+</script>
+
+<script id="application-status-accepted-template" type="text/x-handlebars-template">
+  <p>Congratulations {{firstWord name}}, you've been <strong>accepted</strong> to attend Hack The North!</p>
+  <p>
+    <img class="accepted-img" src="/img/accepted.gif">
+  </p>
+  <p>We're going to need some more information from you in order to confirm your attendance.</p>
+  <div class="registration-nav-buttons">
+    <button class="CTA confirm-registration-button">
+      RSVP/Reimbursements
+    </button>
+    {{#if finished_registration}}
+      <p>
+        <em>You are already confirmed to be attending.</em>
+      </p>
+    {{/if}}
+
+    <label class="checkbox">
+      <input type="checkbox" class="application-withdrawal-checkbox" {{checked "true" withdrawn }}>
+      I would like to withdraw my application
+    </label>
+  </div>
+</script>
+
+<script id="application-status-waitlisted-template" type="text/x-handlebars-template">
+  <p>
+    {{firstWord name}}, you've been <strong>waitlisted</strong> to attend Hack
+    The North!
+  </p>
+
+  <p>
+    As more spots open, we will be contacting you to confirm your status to
+    attending Hack the North!
+  </p>
+
+  <p>
+    In the meantime, if you really want to bump your spot on the list, you can
+    give us some more information about yourself.
+  </p>
+
+  <div class="registration-nav-buttons">
+    <button class="CTA confirm-registration-button">Bump me up</button>
+    {{#if finished_registration}}
+      <p>
+        <em>You are already bumped up.</em>
+      </p>
+    {{/if}}
+
+    <label class="checkbox">
+      <input type="checkbox" class="application-withdrawal-checkbox" {{checked "true" withdrawn }}>
+      I would like to withdraw my application
+    </label>
+  </div>
+</script>
+
+<script id="application-status-processing-template" type="text/x-handlebars-template">
+  <p>
+    {{firstWord name}}, we are still <strong>processing</strong> your application.
+    We will contact you via email when there is an update.
+  </p>
+</script>
+
+<script id="application-status-rejected-template" type="text/x-handlebars-template">
+  <p>
+    We received an overwhelming number of applications this year and unfortunately due to limited venue capacity
+    we are unable to offer you a spot at this time. We were blown away by the interest in Hack the North and hope
+    to be bigger and better next year!
+  </p>
+</script>
+{% endraw %}
+
+<section>
+<div class="wrapper application-wrapper">
+  <div class="section_header">
+    <h3>Your Application</h3>
+  </div>
+
+  <div class="group">
+    <div class="col span_6_of_12 col-center">
+      <div class="section_header">
+        <h4>Application Status</h4>
+      </div>
+      <div class="application-status">
+        <div class="spinner spinner-light"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group application-group">
+    <div class="col span_6_of_12">
+      <div class="section_header">
+        <h4>Team</h4>
+      </div>
+
+      <div class="team-members-section">
+        <div class="spinner spinner-light"></div>
+      </div>
+    </div>
+
+    <div class="col span_6_of_12">
+      <div class="section_header">
+        <h4>Profile</h4>
+      </div>
+      <form class="application-form" method="post" action="index.html">
+        <div class="spinner spinner-light"></div>
+      </form>
+    </div>
+  </div>
+</div>
+</section>

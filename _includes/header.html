@@ -1,0 +1,194 @@
+<section id="home" vocab="http://schema.org/" typeof="Event">
+  <div id="home_foreground" class="header">
+    <a href="{{ site.baseurl }}">
+      <img id="HTNlogo" src="/2014/img/logo.png" alt="Hack The North" property="image">
+    </a>
+    <h1 property="name">Hack the North</h1>
+    <h2 class="upcase" property="description">Canada's Largest International Hackathon</h2>
+    <h2 class="upcase">
+    <meta property="startDate" content="2014-09-19">Sept 19–<meta property="endDate" content="2014-09-21">21 2014 @ <span property="location" typeof="Place">University of Waterloo</span></h2>
+
+    {% if page.showExtraHeader %}
+
+    <!--<a href="https://docs.google.com/a/hackthenorth.com/spreadsheets/d/1a3jj92W7ovoerWt1GfFN0lZbj3gXo6ht-fM8mpi9lbI/edit#gid=934377343">
+      <button class="CTA" type="submit">Judging Schedule</button>
+    </a>-->
+
+    <!--<a href="#schedule">
+      <button class="CTA" type="submit">Schedule</button>
+    </a>-->
+
+    <!--<a href="live/">
+      <button class="CTA" type="submit">Live Stream</button>
+    </a>-->
+
+    <a href="http://hackthenorth.challengepost.com/">
+      <button class="CTA" type="submit">Submissions</button>
+    </a>
+
+    <a href="http://www.youtube.com/playlist?list=PLUPkp6CWLoR2l22ipe07w6QZED5OdCBvN">
+      <button class="CTA" type="submit">Winners</button>
+    </a>
+
+    <div id="factsection">
+      <div class="fact">
+        <img src"img/hackers.png" alt="">
+        1000 <br> hackers
+      </div>
+
+      <div class="fact">
+        <img src="img/hours.png" alt="">
+        36 hours of <br> hacking
+      </div>
+
+      <div class="fact">
+        <img src="img/travel.png" alt="">
+        Travel is on us
+      </div>
+
+    </div>
+
+    <div class="social-buttons">
+      <a href="https://twitter.com/hackthenorth" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @hackthenorth</a>
+      <div class="fb-like" data-href="http://hackthenorth.com/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+    </div>
+
+    {% endif %}
+  </div>
+
+  {% if page.showExtraHeader %}
+  <div class="application">
+    <div class="section_header">
+      <h3 id="registration_header">
+        <button class="application-back back"></button>
+        Application
+      </h3>
+    </div>
+
+    <div id="application-closed" class="simform">
+      <span class="final-message show">
+        Applications are now closed :-(
+        <small>
+          Unfortunately, we've closed applications for the year. We hope to see you again next fall!
+        </small>
+      </span>
+    </div>
+
+    <form id="application-form" style="display: none;" class="simform">
+      <div class="simform-inner">
+        <ol class="questions">
+          <li>
+            <span><label for="q1">My full name is</label></span>
+            <input id="q1" name="name" type="text" required maxlength="255">
+          </li>
+          <li>
+            <span><label for="q2">In September I will be studying at</label></span>
+            <input id="q2" name="school" type="text" required maxlength="255" placeholder="University of ">
+          </li>
+          <li>
+            <span><label for="q3">My school email is</label></span>
+            <input id="q3" name="email" type="email" required maxlength="255">
+          </li>
+          <li class="nl-question" data-nl-question="1"></li>
+          <li class="nl-question" data-nl-question="2"></li>
+          <li class="nl-question" data-nl-question="3"></li>
+          <li class="nl-question" data-nl-question="4"></li>
+          <li>
+            <span><label for="q4">You can find out more about me at the following website</label></span>
+            <input id="q4" name="portfolio" type="text" value="http://" required>
+            <div class="help-text">
+              Your personal website, Github or LinkedIn profile are all wonderful ways for us to get to know you.
+            </div>
+          </li>
+          <li>
+            <span><label for="q9">Tell us about something cool you've done</label></span>
+            <textarea id="q9" name="proud_project"></textarea>
+            <div class="help-text">
+              This could be any kind of project from a previous hackathon, school, work or even your free time. Include links if applicable.
+            </div>
+          </li>
+        </ol><!-- /questions -->
+
+        <div class="nl-form nl-question-1">
+          I will be an
+          <select name="student_status">
+            <option value="undergraduate" selected>undergraduate</option>
+            <option value="graduate">graduate</option>
+            <option value="highschool">highschool</option>
+          </select>
+          student, and I expect to graduate in
+          <select name="grad_year">
+            <option value="2014">2014</option>
+            <option value="2015" selected>2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+          </select>
+          .
+          <div class="nl-overlay"></div>
+        </div>
+
+        <div class="nl-form nl-question-2">
+          This
+          <select name="first_hackathon">
+            <option value="true">is</option>
+            <option value="false" selected>is not</option>
+          </select>
+          my first hackathon.
+          <div class="nl-overlay"></div>
+        </div>
+
+        <div class="nl-form nl-question-3">
+          I
+          <select name="travel">
+            <option value="true">will</option>
+            <option value="false" selected>will not</option>
+          </select>
+          need travel reimbursements.
+          <div class="nl-overlay"></div>
+          <div class="help-text">
+            We might even fly you down!
+          </div>
+        </div>
+
+        <div class="nl-form nl-question-4">
+          I
+          <select name="is_hardware">
+            <option value="true">plan</option>
+            <option value="false" selected>do not plan</option>
+          </select>
+          on doing a hardware hack.
+          <div class="nl-overlay"></div>
+          <div class="help-text">
+            Depending on your hack, we might be able to provide you with hardware resources.
+          </div>
+        </div>
+
+
+        <button class="submit" type="submit">Send answers</button>
+        <div class="controls">
+          <button class="next"></button>
+          <div class="progress"></div>
+          <span class="number">
+            <span class="number-current"></span>
+            <span class="number-total"></span>
+          </span>
+          <span class="error-message"></span>
+        </div><!-- / controls -->
+      </div><!-- /simform-inner -->
+      <span class="final-message">
+        Thanks for applying!
+        <small>
+          We have emailed you the link to finish the rest of your application at
+          <span class="final-message-email"></span>
+          We'll be in touch when we've processed your awesome application
+        </small>
+      </span>
+    </form><!-- /simform -->
+  </div>
+  {% endif %}
+
+  <div id="home_gradient"></div>
+  <img id="home_image" src="/2014/img/background_transparent.png"</img>
+</section>
