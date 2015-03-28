@@ -58,38 +58,30 @@ a:hover {
 }
 
 .hero {
-  background-color: #2A3256;
+  background-color: #FFF;
   color: white;
   overflow: hidden;
-  padding-bottom: 150px;
+  padding-bottom: 200px;
   position: relative;
 }
 
-.hero-gradient{
-  background: rgb(3,30,30); /* Old browsers */
-  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAzMWUxZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjI5JSIgc3RvcC1jb2xvcj0iIzIzMmE0NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-  background: -moz-linear-gradient(top,  rgb(3,30,30) 0%, rgb(35,42,68) 29%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(3,30,30)), color-stop(29%,rgb(35,42,68))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgb(3,30,30) 0%,rgb(35,42,68) 29%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgb(3,30,30) 0%,rgb(35,42,68) 29%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgb(3,30,30) 0%,rgb(35,42,68) 29%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgb(3,30,30) 0%,rgb(35,42,68) 29%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#031e1e', endColorstr='#232a44',GradientType=0 ); /* IE6-8 */
-
+.hero-description {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 30px;
+  padding: 5px;
+  margin-top: 100px;
 }
 
-.forest-background {
+.hero-background {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background: url(/img/hero.png) no-repeat center center;
+  background: url(/img/hero.png) no-repeat center -10px;
   background-size: 100%;
   background-repeat: no-repeat;
   height: 100%;
   position: absolute;
-  top: 210px;
   width: 100%;
 }
 
@@ -137,74 +129,46 @@ a:hover {
     display: none;
   }
 
-#subscribe {
-  margin-top: 50px;
+#register {
+  margin-top: 20px;
 }
 
-#subscribe p {
-  text-align: center;
-  color: #c9cfcf;
+#register .register-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  float: left;
   font-size: 16px;
-  margin-bottom: 0;
+  font-weight: 300;
+  padding: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
-#subscribe form {
-  margin-bottom: 15px;
+#register .register-container .register-button {
+  background-color: #F7176D;
+  border-bottom: 3px solid #D5054B;
+  display: block;
+  padding: 10px 8px 10px 8px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
-#subscribe form input {
-  height: 60px;
-  width: 280px;
-}
-
-#subscribe form input[type='email'] {
-  background-color: rgba(255,255,255,0.5);
-  border: #6f786a;
-  font-size: 20px;
-  padding: 0 25px;
-}
-
-#subscribe form input[type='submit'] {
+.register-button:hover, .register-button:active {
   color: white;
-  background-color: #e57623;
-  border: #e57623;
-  font-weight: 900;
-  font-size: 18px;
-  font-family: 'Raleway', sans-serif
-}
-
-#subscribe form input[type='email']::-webkit-input-placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-#subscribe form input[type='email']:-moz-placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-#subscribe form input[type='email']::-moz-placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-#subscribe form input[type='email']:-ms-input-placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-#subscribe a {
-  color: white;
-  text-decoration: none;
-}
-
-#subscribe a:hover {
-  border-bottom: 2px dashed rgba(255, 255, 255, 0.75);
 }
 
 .navbar {
   display: none;
 }
 
-.upcase {
-  text-transform: lowercase;
-  font-variant: small-caps;
+.square {
+  border: 3px solid #999;
+  display: inline-block;
+  height: 12px;
+  margin-right: 3px;
+  vertical-align: middle;
+  width: 12px;
 }
 
 #error, #confirmation {
@@ -213,12 +177,12 @@ a:hover {
 }
 
 
-.attention {
-  background-color: rgba(229,118,35,0.5);
-  padding: 5px 15px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+.navbar-link:hover, .navbar-link:active {
+  background-color: #F7196D;
+  color: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 .forest-footer-filler {
@@ -523,8 +487,10 @@ a:hover {
 
 
 @media (min-width: 865px) {
-  .navbar{
-    padding-top: 15px;
+  .navbar {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    background-color: white;
   }
   .navbar + .docs-section {
     border-top-width: 0;
@@ -548,7 +514,7 @@ a:hover {
     display: none;
   }
   .navbar > .container {
-    width: 100%;
+    width: 900px;
   }
 
   .navbar-list {
@@ -562,8 +528,12 @@ a:hover {
     display: inline-block;
   }
 
-  .social-media-container {
-    height: 65px;
+  .navbar-title {
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 10px;
   }
 
   .navbar-item .social-media-logo {
@@ -585,16 +555,12 @@ a:hover {
 
   .navbar-link {
     font-family: 'Raleway', sans-serif;
-    font-size: 22px;
-    letter-spacing: .2rem;
-    margin-right: 35px;
+    font-size: 14px;
+    padding: 10px 8px 10px 8px;
+    text-align: center;
     text-decoration: none;
     line-height: 6.5rem;
-    color: #FFF;
-  }
-
-  .navbar-link:hover, .navbar-link:active {
-    color: #e57623;
+    color: #000;
   }
 
   p.navbar-link {
@@ -611,7 +577,7 @@ a:hover {
     display: inline-block;
   }
 
-  .forest-background-mobile{
+  .hero-background-mobile{
     display: none;
   }
 
@@ -630,11 +596,11 @@ a:hover {
     filter: none;
   }
 
-  .forest-background{
+  .hero-background{
     display: none;
   }
 
-  .forest-background-mobile{
+  .hero-background-mobile{
     width:100%;
   }
 
@@ -728,7 +694,7 @@ a:hover {
     margin-bottom: 1px;
   }
 
-  #subscribe {
+  #register {
     margin-top: 10px;
   }
 
