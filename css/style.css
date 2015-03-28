@@ -58,10 +58,10 @@ a:hover {
 }
 
 .hero {
-  background-color: #2A3256;
+  background-color: #FFF;
   color: white;
   overflow: hidden;
-  padding-bottom: 150px;
+  padding-bottom: 200px;
   position: relative;
 }
 
@@ -72,17 +72,16 @@ a:hover {
   margin-top: 100px;
 }
 
-.forest-background {
+.hero-background {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background: url(/img/hero.png) no-repeat center center;
+  background: url(/img/hero.png) no-repeat center -10px;
   background-size: 100%;
   background-repeat: no-repeat;
   height: 100%;
   position: absolute;
-  top: 0;
   width: 100%;
 }
 
@@ -134,76 +133,42 @@ a:hover {
   margin-top: 20px;
 }
 
-#register .register-button {
+#register .register-container {
   background-color: rgba(0, 0, 0, 0.5);
-  font-size: 20px;
-  padding: 5px;
-}
-
-#subscribe p {
-  text-align: center;
-  color: #c9cfcf;
+  float: left;
   font-size: 16px;
-  margin-bottom: 0;
+  font-weight: 300;
+  padding: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
-#subscribe form {
-  margin-bottom: 15px;
+#register .register-container .register-button {
+  background-color: #F7176D;
+  border-bottom: 3px solid #D5054B;
+  display: block;
+  padding: 10px 8px 10px 8px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
-#subscribe form input {
-  height: 60px;
-  width: 280px;
-}
-
-#subscribe form input[type='email'] {
-  background-color: rgba(255,255,255,0.5);
-  border: #6f786a;
-  font-size: 20px;
-  padding: 0 25px;
-}
-
-#subscribe form input[type='submit'] {
+.register-button:hover, .register-button:active {
   color: white;
-  background-color: #e57623;
-  border: #e57623;
-  font-weight: 900;
-  font-size: 18px;
-  font-family: 'Raleway', sans-serif
-}
-
-#subscribe form input[type='email']::-webkit-input-placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-#subscribe form input[type='email']:-moz-placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-#subscribe form input[type='email']::-moz-placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-#subscribe form input[type='email']:-ms-input-placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-#subscribe a {
-  color: white;
-  text-decoration: none;
-}
-
-#subscribe a:hover {
-  border-bottom: 2px dashed rgba(255, 255, 255, 0.75);
 }
 
 .navbar {
   display: none;
 }
 
-.upcase {
-  text-transform: lowercase;
-  font-variant: small-caps;
+.square {
+  border: 3px solid #999;
+  display: inline-block;
+  height: 12px;
+  margin-right: 3px;
+  vertical-align: middle;
+  width: 12px;
 }
 
 #error, #confirmation {
@@ -213,12 +178,11 @@ a:hover {
 
 
 .navbar-link:hover, .navbar-link:active {
-  background-color: rgba(255, 0, 0,0.5);
+  background-color: #F7196D;
   color: white;
-  padding: 5px 15px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 .forest-footer-filler {
@@ -524,6 +488,7 @@ a:hover {
 
 @media (min-width: 865px) {
   .navbar {
+    border: 1px solid rgba(0, 0, 0, 0.1);
     margin-top: 30px;
     background-color: white;
   }
@@ -565,7 +530,9 @@ a:hover {
 
   .navbar-title {
     color: black;
+    font-family: 'Open Sans', sans-serif;
     font-size: 24px;
+    font-weight: 700;
     padding: 10px;
   }
 
@@ -588,9 +555,9 @@ a:hover {
 
   .navbar-link {
     font-family: 'Raleway', sans-serif;
-    font-size: 22px;
-    letter-spacing: .2rem;
-    margin-right: 35px;
+    font-size: 14px;
+    padding: 10px 8px 10px 8px;
+    text-align: center;
     text-decoration: none;
     line-height: 6.5rem;
     color: #000;
@@ -610,7 +577,7 @@ a:hover {
     display: inline-block;
   }
 
-  .forest-background-mobile{
+  .hero-background-mobile{
     display: none;
   }
 
@@ -629,11 +596,11 @@ a:hover {
     filter: none;
   }
 
-  .forest-background{
+  .hero-background{
     display: none;
   }
 
-  .forest-background-mobile{
+  .hero-background-mobile{
     width:100%;
   }
 
