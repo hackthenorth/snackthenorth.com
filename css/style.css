@@ -65,18 +65,11 @@ a:hover {
   position: relative;
 }
 
-.hero-gradient{
-  background: rgb(3,30,30); /* Old browsers */
-  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAzMWUxZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjI5JSIgc3RvcC1jb2xvcj0iIzIzMmE0NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-  background: -moz-linear-gradient(top,  rgb(3,30,30) 0%, rgb(35,42,68) 29%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(3,30,30)), color-stop(29%,rgb(35,42,68))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgb(3,30,30) 0%,rgb(35,42,68) 29%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgb(3,30,30) 0%,rgb(35,42,68) 29%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgb(3,30,30) 0%,rgb(35,42,68) 29%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgb(3,30,30) 0%,rgb(35,42,68) 29%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#031e1e', endColorstr='#232a44',GradientType=0 ); /* IE6-8 */
-
+.hero-description {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 30px;
+  padding: 5px;
+  margin-top: 100px;
 }
 
 .forest-background {
@@ -89,7 +82,7 @@ a:hover {
   background-repeat: no-repeat;
   height: 100%;
   position: absolute;
-  top: 210px;
+  top: 0;
   width: 100%;
 }
 
@@ -137,8 +130,14 @@ a:hover {
     display: none;
   }
 
-#subscribe {
-  margin-top: 50px;
+#register {
+  margin-top: 20px;
+}
+
+#register .register-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  padding: 5px;
 }
 
 #subscribe p {
@@ -213,8 +212,9 @@ a:hover {
 }
 
 
-.attention {
-  background-color: rgba(229,118,35,0.5);
+.navbar-link:hover, .navbar-link:active {
+  background-color: rgba(255, 0, 0,0.5);
+  color: white;
   padding: 5px 15px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -523,8 +523,9 @@ a:hover {
 
 
 @media (min-width: 865px) {
-  .navbar{
-    padding-top: 15px;
+  .navbar {
+    margin-top: 30px;
+    background-color: white;
   }
   .navbar + .docs-section {
     border-top-width: 0;
@@ -548,7 +549,7 @@ a:hover {
     display: none;
   }
   .navbar > .container {
-    width: 100%;
+    width: 900px;
   }
 
   .navbar-list {
@@ -562,8 +563,10 @@ a:hover {
     display: inline-block;
   }
 
-  .social-media-container {
-    height: 65px;
+  .navbar-title {
+    color: black;
+    font-size: 24px;
+    padding: 10px;
   }
 
   .navbar-item .social-media-logo {
@@ -590,11 +593,7 @@ a:hover {
     margin-right: 35px;
     text-decoration: none;
     line-height: 6.5rem;
-    color: #FFF;
-  }
-
-  .navbar-link:hover, .navbar-link:active {
-    color: #e57623;
+    color: #000;
   }
 
   p.navbar-link {
@@ -728,7 +727,7 @@ a:hover {
     margin-bottom: 1px;
   }
 
-  #subscribe {
+  #register {
     margin-top: 10px;
   }
 
