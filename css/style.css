@@ -264,6 +264,10 @@ input[type='submit']:active {
   padding: 50px 30px;
 }
 
+.content section#prizes:first-child {
+  padding: 40px 0;
+}
+
 .section-header {
   margin-bottom: 45px;
 }
@@ -837,4 +841,22 @@ Copyrights =========*/
     float: none;
     width: 49.7%;
   }
+}
+
+@media (min-width: 992px) {
+  #prizes .prize-inline {
+    display:inline-block;
+    float: none;
+    width: 33%;
+  }
+}
+
+#prizes .icon img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  height: auto;
+  margin-top: -4px;
+  width: 100%;
 }
