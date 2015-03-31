@@ -830,3 +830,11 @@ Copyrights =========*/
   line-height: 1.4em;
   color: #BBBAC0;
 }
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .responsive-inline {
+    display: inline-block;
+    float: none;
+    width: 49.7%;
+  }
+}
