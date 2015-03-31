@@ -241,6 +241,11 @@ input[type='submit']:active {
   padding: 50px 0;
 }
 
+.content section#event-description:first-child {
+  padding: 40px 0;
+  text-align: center;
+}
+
 .content section#features:first-child {
   padding: 40px 0;
 }
