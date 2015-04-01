@@ -2,7 +2,6 @@
 
   .accordion-title { width: 100%; padding: 40px 0 0 0; }
   .nav-tabs > li { width: 100%; }
-  .nav-tabs > li > a { width: 100%; }
   .header-cta .blk { padding: 10px; }
   .header-cta h1 { font-size: 4.5rem; }
   .col-xs-6 { width: 100%; }
@@ -22,7 +21,6 @@
 
   .navbar-nav,
   .navbar-nav > li,
-  .navbar-nav > li > a { width: 100%; }
   .navbar-nav > li + li { margin: 0; }
   .navbar-brand { padding: 1.5rem 0; }
 
