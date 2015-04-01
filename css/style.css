@@ -461,9 +461,17 @@ Navigation =========*/
   color: #222222;
 }
 
-.navbar-brand.logo > img {
-    max-height: 40px;
-    width: auto;
+.logo {
+  background: url('../img/logo.png');
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar-brand-text {
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .navbar-brand:hover span {
