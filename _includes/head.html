@@ -1,0 +1,25 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <link href="/2014/css/normalize.css" rel="stylesheet">
+  {% for url in page.stylesheets %}
+    <link href="{{ url }}" rel="stylesheet">
+  {% endfor %}
+  <link href="/2014/css/main.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+  <meta name="description" content="Hack the North is Canada's largest international hackathon, and is being held on September 19-21 at the University of Waterloo.">
+  <meta property="og:image" content="/2014/img/cover.jpg"/>
+  <meta property="og:title" content="Hack the North"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@hackthenorth">
+  <meta name="twitter:title" content="Hack the North">
+  <meta name="twitter:description" content="Hack the North is the biggest Canadian hackathon being held on September 19-21 at University of Waterloo">
+  <meta name="twitter:image:src" content="http://hackthenorth.com/img/logo.png">
+  <meta name="twitter:domain" content="http://hackthenorth.com">
+  <link rel="icon" type="image/png" href="img/favicon.ico">
+  <meta name="google-site-verification" content="1y4pJvYFaDbmQuH9MwSqlSe6o67N-LHpz-p5S94ComE" />
+</head>

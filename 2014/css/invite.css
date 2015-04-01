@@ -1,0 +1,44 @@
+.token-input-token p {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+/* Delete button */
+.token-input-token span {
+  color: #777;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+/* Hide input field since we use our own. */
+.token-input-input-token {
+  display: none;
+}
+
+.leave-team-confirm-container {
+  display: none;
+}
+
+.team-members-invite-code {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.or {
+  border: none;
+  border-bottom: 1px solid #CCC;
+  position: relative;
+  margin: 20px auto;
+}
+
+.or:after {
+  content: "OR";
+  display: block;
+  position: absolute;
+  top: -12px;
+  left: calc(50% - 20px);
+  background: #FFF;
+  width: 40px;
+  text-align: center;
+}
