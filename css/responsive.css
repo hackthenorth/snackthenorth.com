@@ -9,13 +9,6 @@
     max-width: 100%;
     height: auto !important;
   }
-  .header-bg-video {
-    display: none;
-  }
-  .header-bg {
-    background: url('../img/epic.gif');
-    background-position: center;
-  }
 }
 
 @media (max-width: 767px) {
@@ -35,6 +28,14 @@
 
 
   .header-bg { height: 550px; }
+
+  .header-bg-video {
+    display: none;
+  }
+  .header-bg {
+    background: url('../img/epic.gif');
+    background-position: center;
+  }
 
 }
 
