@@ -166,7 +166,7 @@ input[type='submit']:active {
 
 #header {
   position: relative;
-  margin-bottom: -100px;
+  margin-bottom: -65px;
   overflow: hidden;
 }
 
@@ -245,7 +245,8 @@ input[type='submit']:active {
  * Event description
  */
 .content section#event-description:first-child {
-  padding: 40px 0;
+  padding-bottom: 40px;
+  padding-top: 0;
   text-align: center;
 }
 
@@ -348,9 +349,8 @@ input[type='submit']:active {
 /*--------------------
 Main Slider ========*/
 .main-slider .slides img {
-  position: absolute;
-  width: 100%;
-  min-width: 1200px;
+  position: relative;
+  top: 200px;
   left: 50%;
 }
 
@@ -910,4 +910,11 @@ Copyrights =========*/
 
 .owl-item .item {
   background-color: #fff;
+}
+
+.hero-register {
+  float: none !important;
+  display: block;
+  margin: 0 auto -50px auto;
+  width: 300px;
 }
