@@ -265,6 +265,13 @@ input[type='submit']:active {
   width: 100%;
 }
 
+.tagline-box .info img {
+  display: block;
+  height: 30px;
+  margin: 0 auto 0 auto;
+  width: 30px;
+}
+
 .tagline-box .info h2 {
   color: #ff006a;
   font-weight: 700;
