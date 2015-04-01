@@ -911,3 +911,8 @@ Copyrights =========*/
 .owl-item .item {
   background-color: #fff;
 }
+
+footer {
+  text-align: center;
+  margin-bottom: 50px;
+}
