@@ -241,11 +241,53 @@ input[type='submit']:active {
   padding: 50px 0;
 }
 
+/**
+ * Event description
+ */
 .content section#event-description:first-child {
   padding: 40px 0;
   text-align: center;
 }
 
+.tagline-box div {
+  display: block;
+}
+
+.tagline-box div.icon {
+  height: 75px;
+  margin: 0 auto 0 auto;
+  width: 75px;
+}
+
+.tagline-box div.icon img {
+  border-radius: 50%;
+  height: auto;
+  width: 100%;
+}
+
+.tagline-box .info img {
+  display: block;
+  height: 30px;
+  margin: 0 auto 0 auto;
+  width: 30px;
+}
+
+.tagline-box .info h2 {
+  color: #ff006a;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.tagline-box .info h4 {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  margin-top: 0;
+}
+
+/**
+ * Features
+ */
 .content section#features:first-child {
   padding: 40px 0;
 }
