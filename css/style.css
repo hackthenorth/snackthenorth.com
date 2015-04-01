@@ -237,6 +237,9 @@ input[type='submit']:active {
     background: url(../images/demo/crumbs.png); repeat;
 }
 
+/**
+ * Event description
+ */
 .content section {
   padding: 50px 0;
 }
@@ -246,9 +249,43 @@ input[type='submit']:active {
   text-align: center;
 }
 
+.tagline-box div {
+  display: block;
+}
+
+.tagline-box div.icon {
+  height: 75px;
+  margin: 0 auto 0 auto;
+  width: 75px;
+}
+
+.tagline-box div.icon img {
+  border-radius: 50%;
+  height: auto;
+  width: 100%;
+}
+
+.tagline-box .info h2 {
+  color: #ff006a;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.tagline-box .info h4 {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  margin-top: 0;
+}
+
+/**
+ * Features
+ */
+
 .content section#features:first-child {
   padding: 40px 0;
 }
+
+.tagline-box
 
 .content section + section:before {
   display: block;
