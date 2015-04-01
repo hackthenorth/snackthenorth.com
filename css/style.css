@@ -245,7 +245,7 @@ input[type='submit']:active {
   position: relative;
     padding: 0 15px;
     z-index: 50;
-    background: url(../images/demo/crumbs.png); repeat;
+    background: url(../images/demo/cheetodust.png); repeat;
 }
 
 .content section {
@@ -941,7 +941,7 @@ footer {
 }
 .sponsor {
   display: inline-block;
-  margin: auto;
+  margin: 10px 15px 10px 15px;
 }
 .sponsor img {
   height: 100px;
