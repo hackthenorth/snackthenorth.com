@@ -935,3 +935,16 @@ footer {
   text-align: center;
   margin-bottom: 50px;
 }
+
+.sponsors {
+  text-align: center;
+}
+.sponsor {
+  display: inline-block;
+  margin: auto;
+}
+.sponsor img {
+  height: 100px;
+  width: auto;
+  max-width: 100%;
+}

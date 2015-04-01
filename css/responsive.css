@@ -6,7 +6,10 @@
   .header-cta .blk { padding: 10px; }
   .header-cta h1 { font-size: 4.5rem; }
   .col-xs-6 { width: 100%; }
-
+  .sponsor img, .sponsor {
+    max-width: 100%;
+    height: auto !important;
+  }
 }
 
 @media (max-width: 767px) {
