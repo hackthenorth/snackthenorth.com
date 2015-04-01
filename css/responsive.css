@@ -9,6 +9,22 @@
     max-width: 100%;
     height: auto !important;
   }
+  .navbar-brand-text {
+    font-size: 0.8em;
+  }
+
+  .header-menu.fixed {
+    margin: 0;
+  }
+
+  .header-menu.fixed > .box {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom: 1px solid #efefef;
+  }
+
 }
 
 @media (max-width: 767px) {
