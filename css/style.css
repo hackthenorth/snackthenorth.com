@@ -865,3 +865,7 @@ Copyrights =========*/
   margin-top: -4px;
   width: 100%;
 }
+
+.owl-item .item {
+  background-color: #fff;
+}
