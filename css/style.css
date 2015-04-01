@@ -218,6 +218,17 @@ input[type='submit']:active {
   position: relative;
   height: 750px;
   overflow: hidden;
+  text-align: center;
+}
+
+.header-bg-video {
+  min-height: 720px;
+  min-width: 100%;
+  left: 0;
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .header-bg:before {
@@ -367,11 +378,11 @@ Header CTA ========*/
 }
 
 .header-cta .blk {
-  float: left;
   padding: 10px;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.5);
-  margin-top: 10px;
+  width: 300px;
+  margin: auto;
 }
 
 .header-cta h1 {
