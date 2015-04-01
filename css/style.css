@@ -546,7 +546,7 @@ Tabs ===============*/
   font-family: 'Belgrano', serif;
   font-size: 2.2rem;
   color: #bbbac0;
-  padding: 1rem 4rem;
+  padding: 10px 20px;
 }
 
 .nav-tabs > li.active a{
@@ -585,7 +585,7 @@ Accordion ==========*/
 
 .accordion {
   background: #efefef;
-  padding: 20px 40px;
+  padding: 20px 20px;
   overflow: hidden;
 }
 
