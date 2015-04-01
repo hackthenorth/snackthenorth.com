@@ -237,13 +237,13 @@ input[type='submit']:active {
     background: url(../images/demo/crumbs.png); repeat;
 }
 
-/**
- * Event description
- */
 .content section {
   padding: 50px 0;
 }
 
+/**
+ * Event description
+ */
 .content section#event-description:first-child {
   padding: 40px 0;
   text-align: center;
@@ -269,6 +269,7 @@ input[type='submit']:active {
   color: #ff006a;
   font-weight: 700;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .tagline-box .info h4 {
@@ -280,12 +281,9 @@ input[type='submit']:active {
 /**
  * Features
  */
-
 .content section#features:first-child {
   padding: 40px 0;
 }
-
-.tagline-box
 
 .content section + section:before {
   display: block;
