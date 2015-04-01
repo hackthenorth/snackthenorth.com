@@ -941,7 +941,7 @@ footer {
 }
 .sponsor {
   display: inline-block;
-  margin: auto;
+  margin: 5px 5px 5px 5px;
 }
 .sponsor img {
   height: 100px;
