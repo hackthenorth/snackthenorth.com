@@ -1,6 +1,8 @@
 hackthenorth.com
 ================
 
+Now hosted at https://hackforasnack.hackthenorth.com/
+
 Homepage for hackthenorth.com
 
 #Hack the North website
